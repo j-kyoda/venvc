@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# python virtualenv setting
+#
+
+## Path to command(python, pyvenv or virtualenv)
+
+#PYVENV="/opt/python3.6/bin/python3.6 -m venv"
+#PYVENV="/usr/bin/virtualenv"
+#PYVENV="/usr/bin/pyvenv"
+PYVENV="/usr/bin/python -m venv"
+
+## directory for virtualenv
+
+VENV_DIR=./venv
+
+## filename for export and reinstall
+
+EXPORT_FILE=requirements.txt
