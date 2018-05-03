@@ -45,15 +45,16 @@ function vec_reinstall() {
 }
 
 function vec_update() {
-    res=$(pip list -o --format=legacy)
+    res=$(pip list -o --format=columns)
     if [ "${res}" != "" ]
     then
+        cnt=$(($(echo "${res}" | wc -l) - 2))
         # update all packages
-        echo "${res}" | while read line
+        echo "${res}" | tail -n $cnt | while read line
         do
             if [ "${line}" != "" ]
             then
-                echo "${line}"  | cut -d ' ' -f 1 | xargs pip install -U
+                echo "${line}" | cut -d ' ' -f 1 | xargs pip install -U
             fi
         done
     fi
